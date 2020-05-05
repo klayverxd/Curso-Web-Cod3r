@@ -1,20 +1,17 @@
 function fatorial(numero) {
-    let repete = numero - 1
-    let resultado = numero
-    if(numero == 1 || numero == 0) {
-        console.log(resultado)
+    if(numero == 0 || numero == 1){
+        return 1
     } else {
-        while (repete != 1) {
-            resultado = (repete + 1) * repete
-            repete--
-            fatorial(repete)
+        var resultado = 1
+        for(let i = numero; i > 0; i--) {
+            resultado *= i 
         }
-        console.log(resultado)
+        return resultado
     }
 }
 
-fatorial(0)
-fatorial(1)
-fatorial(2)
-fatorial(3)
-fatorial(4)
+console.log(fatorial(0))
+console.log(fatorial(1))
+console.log(fatorial(2))
+console.log(fatorial(3))
+console.log(fatorial(4))
