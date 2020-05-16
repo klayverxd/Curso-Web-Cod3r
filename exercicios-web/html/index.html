@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Básicos</title>
+</head>
+<body>
+    <header>
+        Exercícios
+    </header>
+    <nav>
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> |
+        <a href wm-nav="exercicios/temp.html">01 - Temp</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <br>
+        Curso de Web Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')   // obtendo section pelo id
+
+            link.onclick = function(e) {     //e = evento do click
+                e.preventDefault()     // prevenir o comportamento padrão (navegação)
+                fetch(link.getAttribute('wm-nav'))    // requisição ajax no link
+                    .then(resp => resp.text())   // pegar o conteúdo html que foi feito a requisição (retorna promise)
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
