@@ -21,6 +21,7 @@
 </head>
 
 <body class="conteudo exercicio">
+    <!-- Pesquisa em cima do search do google -->
     <h1>Formulário</h1>
     <form name="pesquisa" action="http://www.google.com.br/search">
         <input type="text" name="q" placeholder="Digite o termo...">
@@ -31,7 +32,20 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms)
+        console.log(document.forms[0])
+        // retorna um NodeList
+        console.log(document.getElementsByName('pesquisa'))
+        // retorna um HTMLCollection
+        console.log(document.getElementsByTagName('form'))
+        console.log(document.pesquisa)
+        console.log(document.pesquisa.q)
+        // muda o valor do input
+        document.pesquisa.q.value = 'Teste'
+        // escolhe a seleção do option
+        document.pesquisa.hl.value = 'en-us'
+        // retorna o index que está selecionado
+        console.log(document.pesquisa.hl.selectedIndex)
     </script>
 </body>
 

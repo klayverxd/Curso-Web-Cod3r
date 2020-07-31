@@ -22,7 +22,48 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        // NodeList retorna tudo incluindo espaços em branco
+        // HTMLCollection retorna lista de tags
+
+
+        // simplificando o console.log
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        // passando uma div que possui uma ul como filha
+        const lista = document.querySelector('div ul')
+        // imprimino o pai da lista
+        lista.parentNode.log()
+        // imprimindo os filhos da lista  (os text são os espaços)
+        lista.childNodes.log()
+
+        const primeiro = lista.firstChild
+        // primeiro filho da lista
+        primeiro.log()
+        // primeiro irmão do primeiro elemento da lista
+        primeiro.nextSibling.log()
+
+        const ultimo = lista.lastChild
+        // ultimo elemento da lista
+        ultimo.log()
+        // irmão anterior do último elemento da lista
+        ultimo.previousSibling.log()
+
+        // filhos da lista com HTMLCollection
+        lista.children.log()
+        // primeiro e último elemento definido - tags
+        lista.firstElementChild.log()
+        lista.lastElementChild.log()
+        // selecionando o irmão anterior do pai da lista
+        lista.parentNode.previousElementSibling.log()
+        // selecionando o próximo irmão do pai da lista
+        lista.parentNode.nextElementSibling.log()
     </script>
 </body>
 
