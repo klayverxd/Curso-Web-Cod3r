@@ -17,7 +17,29 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"........')
+        console.log('childNodes', lista.childNodes)
+        // não consegue acessar as propriedades personalizadas
+        console.log('destino', lista.destino)
+        console.log('getAttribute', lista.getAttribute('destino'))
+        console.log('hasAttribute', lista.hasAttribute('destino'))
+        // alterar, adicionar ou remover atributo
+        lista.setAttribute('destino', 'empresa')
+        lista.setAttribute('status', 'aberto')
+        lista.removeAttribute('destino')
+        // lista os atributos que começam com "data-"
+        console.log(lista.dataset)
+        lista.dataset.urgencia = 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // cuidado
+        const label = document.querySelector('label')
+        // não funciona
+        console.log(label.for) 
+        // funcionam
+        console.log(label.htmlFor)
+        console.log(label.getAttribute('for'))
     </script>
 </body>
 
